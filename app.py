@@ -18,7 +18,7 @@ app = Flask(__name__)
 
 # Load the cyberbullying dataset (replace with actual path)
 file_path = os.path.join(os.path.dirname(__file__), 'cyberbullying_tweets.csv')
-data = pd.read_csv(file_path)
+df = pd.read_csv(file_path)
 
 # Ensure the dataset contains the required columns
 if 'tweet_text' not in df.columns or 'cyberbullying_type' not in df.columns:
