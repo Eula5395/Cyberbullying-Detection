@@ -1,5 +1,6 @@
 import base64
 import io
+import os
 import numpy as np
 import pandas as pd
 import matplotlib
@@ -16,8 +17,8 @@ from sklearn.preprocessing import StandardScaler
 app = Flask(__name__)
 
 # Load the cyberbullying dataset (replace with actual path)
-file_path = r'C:\Users\user\Downloads\PRACTICE 2.0\cyberbullying_tweets.csv'  # Change this path if needed
-df = pd.read_csv(file_path, on_bad_lines='skip')
+file_path = os.path.join(os.path.dirname(__file__), 'cyberbullying_tweets.csv')
+data = pd.read_csv(file_path)
 
 # Ensure the dataset contains the required columns
 if 'tweet_text' not in df.columns or 'cyberbullying_type' not in df.columns:
